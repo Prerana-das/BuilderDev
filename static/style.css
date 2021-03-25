@@ -1,93 +1,133 @@
-.main_area{
-    position: relative;
+.main_area {
+  position: relative;
 }
 .topbar {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    background-color: #eff5fb;
-    width: 200px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #eff5fb;
+  width: 200px;
+  text-align: center;
 }
 .topbar h2 {
-    cursor: pointer;
+  cursor: pointer;
 }
-.topbar h2:hover{
-    color:blue;
+.topbar h2:hover {
+  color: blue;
 }
-.single{
-    font-size: 15px;
-    padding: 10px 0px;
-    background-color:#eff5fb;
-    cursor: pointer;
-    border-bottom: #e7e7e7;
+.single {
+  font-size: 15px;
+  padding: 10px 0px;
+  background-color: #eff5fb;
+  cursor: pointer;
+  border-bottom: #e7e7e7;
 }
 .topbar h2 {
-    font-size: 18px;
-    padding: 8px 10px;
-    border-bottom: 1px solid #ddd;
+  font-size: 18px;
+  padding: 8px 10px;
+  border-bottom: 1px solid #ddd;
 }
-.container{
-    border:1px solid #ddd;
+.container {
+  border: 1px solid #ddd;
 }
 .blank_btn {
-    cursor: pointer;
-    background-color: powderblue;
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 2px;
-    color: #fff;
+  cursor: pointer;
+  background-color: powderblue;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 2px;
+  color: #fff;
 }
 .customStyle {
-    padding: 10px;
+  padding: 10px;
 }
-.content{
-   position: relative;
+.content {
+  position: relative;
 }
-.edit_btn{
-    position: absolute;
-    top: 12px;
-    margin-left: 45px;
-    opacity: 0;
-    transition: .3s;
+.edit_btn {
+  position: absolute;
+  top: 12px;
+  left: 8%;
+  margin-left: 45px;
+  opacity: 0;
+  transition: 0.3s;
 }
-.content:hover .edit_btn{
-    opacity: 1;
-    cursor: pointer;
+.content:hover .edit_btn {
+  opacity: 1;
+  cursor: pointer;
 }
 .edit_list {
-    list-style: none;
-    display: inline-block;
-    background-color: #ddd;
-    padding: 2px 10px;
-    position: absolute;
-    left: 0;
+  list-style: none;
+  display: inline-block;
+  background-color: #ddd;
+  padding: 2px 10px;
+  position: absolute;
+  left: 0;
 }
 .edit_list li {
-    display: inline-block;
-    background-color: #fff;
-    width: 31px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
+  display: inline-block;
+  background-color: #fff;
+  width: 31px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
 }
-body{
-    font-family: Roboto;
+body {
+  font-family: Roboto;
 }
-
 
 .u-row.row {
-    padding: 20px;
-    border: 1px solid #ddd;
+  padding: 20px;
+  border: 1px solid #ddd;
 }
-.u-col{
-    padding: 20px;
-    border: 1px solid #ddd;
-  }
-  .u-container{
-    padding: 20px;
-    border: 1px solid #ddd;
-  }
-  .p-0{
-    padding: 0px!important;
-  }
+.u-col {
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+.u-container {
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+.p-0 {
+  padding: 0px !important;
+}
+
+.edit_list_col li span {
+  background-color: #fff;
+  width: 9px;
+  height: 15px;
+  display: inline-block;
+}
+.edit_list_col {
+  display: inline-block;
+  list-style: none;
+  background-color: #ddd;
+  padding: 7px 10px;
+  position: absolute;
+  left: 0;
+}
+.edit_list_col li {
+  background-color: #778ea5;
+  margin-bottom: 10px;
+  cursor: pointer;
+  line-height: 10px;
+  padding: 5px 10px;
+}
+
+.fill {
+  background-image: url("https://source.unsplash.com/random/150x150");
+  position: relative;
+  height: 150px;
+  width: 150px;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}
+.empty {
+  display: inline-block;
+  margin-right: 20px;
+  height: 160px;
+  width: 160px;
+  background-color: rgb(105, 92, 72);
+}

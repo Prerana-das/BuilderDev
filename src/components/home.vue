@@ -9,11 +9,32 @@
                     <h2 @click="addItem('h1',1,'heading')">Heading...</h2>
                     <h2 @click="addItem('p',null,'paragraph')">Text...</h2>
                     <h2 @click="addItem('img',null,null)">Image</h2>
+                    <!-- <h2 @click="addItem('img',null,null)" v-drag>Image</h2> -->
                 </div>
                 <input type="file" accept="image/*" @change="onChange" />
                 <div id="preview">
                     <img v-if="item.imageUrl" :src="item.imageUrl" />
                 </div>
+
+                 <!-- <div class="parentClass">
+                    <div class="mainbody">
+                        <div class="empty">
+                            <div class="fill" draggable="true"></div>
+                        </div>
+                        <div class="empty">
+                        </div>
+                        <div class="empty">
+                        </div>
+                        <div class="empty">
+                        </div>
+                        <div class="empty">
+                        </div>
+                        <div class="empty">
+                        </div>
+                        <div class="empty">
+                        </div>
+                    </div>
+                </div> -->
             </div>
             <div class="col-md-10">
                 <!-- <div v-for="(item,index2) in mainData.items" :key="index2" v-if="mainData.items.length">
@@ -99,7 +120,7 @@ export default {
                     id:this.uniqueId
                 })
                 this.$Notice.info({
-                    title: 'back'
+                    title: 'not allow'
                 });
             }
             else{
