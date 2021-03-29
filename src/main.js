@@ -29,6 +29,10 @@ new Vue({
   template: '<App/>'
 })
 
+// Vue.component('HelloWorld',require('./HelloWorld.vue').default);
+
+// Vue.component('my-component-name', MyComponent)
+
 import { mapActions, mapGetters } from 'vuex';
 Vue.mixin({
     computed: {

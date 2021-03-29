@@ -48,7 +48,7 @@
 .edit_btn {
   position: absolute;
   top: 12px;
-  left: 8%;
+  left: 12%;
   margin-left: 45px;
   opacity: 0;
   transition: 0.3s;
@@ -63,7 +63,7 @@
   background-color: #ddd;
   padding: 2px 10px;
   position: absolute;
-  left: 0;
+  left: 10%;
 }
 .edit_list li {
   display: inline-block;
@@ -130,4 +130,36 @@ body {
   height: 160px;
   width: 160px;
   background-color: rgb(105, 92, 72);
+}
+.textCenter {
+  text-align: center;
+}
+.textLeft {
+  text-align: left;
+}
+.textRight {
+  text-align: right;
+}
+
+.nodeTop {
+  position: static;
+  width: 100%;
+  background-color: #eff5fb;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+ul li {
+  list-style: none;
+}
+
+.tagHoverOn {
+  border: 1px solid #ddd;
+}
+.align_list {
+  display: inline-block;
+  margin-top: 20px;
+}
+.align_list span {
+  font-size: 16px;
+  margin-right: 20px;
 }

@@ -9,6 +9,7 @@
                     <h2 @click="addItem('h1',1,'heading')">Heading...</h2>
                     <h2 @click="addItem('p',null,'paragraph')">Text...</h2>
                     <h2 @click="addItem('img',null,null)">Image</h2>
+                    <hr>
                     <!-- <h2 @click="addItem('img',null,null)" v-drag>Image</h2> -->
                 </div>
                 <input type="file" accept="image/*" @change="onChange" />
@@ -89,7 +90,8 @@ export default {
         item:{
           image : null,
           imageUrl: null
-        }
+        },
+        editValue:''
     }
   },
   methods:{
@@ -97,47 +99,104 @@ export default {
 
       },
 
+    //   addItem(value,size,text){
+    //     let mainData = _.clone(this.mainData);
+    //     if(this.selectTag.selectIndex== -1){
+    //          mainData.items.push({
+    //             contentType:value,
+    //             items:[],
+    //             size:size,
+    //             text:text,
+    //             id:this.uniqueId
+    //         })
+    //          console.log('if 1')
+    //     }
+    //     else{
+    //         if(mainData.items[this.selectTag.selectIndex].contentType==value && (mainData.items[this.selectTag.selectIndex].contentType=='p' || mainData.items[this.selectTag.selectIndex].contentType=='h1')){
+    //             console.log('else 1')
+    //             mainData.items.push({
+    //                 contentType:value,
+    //                 items:[],
+    //                 size:size,
+    //                 text:text,
+    //                 id:this.uniqueId
+    //             })
+    //             this.$Notice.info({
+    //                 title: 'not allow'
+    //             });
+    //         }
+    //         else{
+    //              console.log('else 2')
+    //              mainData.items[this.selectTag.selectIndex].items.push({
+    //                 contentType:value,
+    //                 items:[],
+    //                 size:size,
+    //                 text:text,
+    //                 id:this.uniqueId
+    //             });
+    //         }
+    //     }
+       
+    //     console.log('counttttt',mainData);
+    //     this.$store.commit("setMainData",mainData);
+    //   },
+
       addItem(value,size,text){
-        let mainData = _.clone(this.mainData);
-        if(this.selectTag.selectIndex== -1){
-             mainData.items.push({
+          this.storeData = _.clone(this.mainData);
+          if(this.selectTag.selectItem){
+            // this.editValue=value
+            // this.dfs(this.storeData)
+            // this.$store.commit("setMainData",this.storeData);
+            this.storeData.items.push({
                 contentType:value,
                 items:[],
                 size:size,
                 text:text,
                 id:this.uniqueId
             })
-             console.log('if 1')
-        }
-        else{
-            if(mainData.items[this.selectTag.selectIndex].contentType==value && (mainData.items[this.selectTag.selectIndex].contentType=='p' || mainData.items[this.selectTag.selectIndex].contentType=='h1')){
-                console.log('else 1')
-                mainData.items.push({
-                    contentType:value,
-                    items:[],
-                    size:size,
-                    text:text,
-                    id:this.uniqueId
-                })
-                this.$Notice.info({
-                    title: 'not allow'
-                });
-            }
-            else{
-                 console.log('else 2')
-                 mainData.items[this.selectTag.selectIndex].items.push({
-                    contentType:value,
-                    items:[],
-                    size:size,
-                    text:text,
-                    id:this.uniqueId
-                });
-            }
-        }
-       
-        console.log('counttttt',mainData);
-        this.$store.commit("setMainData",mainData);
+          }else{
+             this.storeData.items.push({
+                contentType:value,
+                items:[],
+                size:size,
+                text:text,
+                id:this.uniqueId
+            })
+            this.$store.commit("setMainData",this.storeData);
+          }
+
+         
       },
+
+
+
+    async dfs(node) {
+        if(node.id==this.selectTag.selectItem.id){
+            console.log('matched')
+            if(this.editValue=='b' || this.editValue=='u' || this.editValue=='i' && this.editValue!=node.contentType){
+                node.items.push({
+                contentType:this.editValue,
+                items:[],
+                size:null,
+                text:null,
+                id:this.uniqueId
+                })
+                // this.singleItem(node.items,0);
+            } 
+            else{
+            }
+        }
+        var len = node.items.length;
+        for (var i = 0; i < len; i++) {
+            var foundNode = await this.dfs(node.items[i]);
+            
+            if (foundNode) {
+            console.log('foundNode',foundNode);
+            return foundNode;
+            }
+        }
+        return null;
+    },
 
       singleItem(i,index){
           let a =_.clone(i)
@@ -145,7 +204,7 @@ export default {
           console.log(i,index)
           this.selectTag.selectItem=a
           this.selectTag.selectIndex=index
-         this.$store.commit("setSelectTagData",this.selectTag);
+        //  this.$store.commit("setSelectTagData",this.selectTag);
       },
       blankDiv(){
         this.selectTag.selectItem=''

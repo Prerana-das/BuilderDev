@@ -13,6 +13,7 @@ export default new Vuex.Store({
       selectIndex:-1,
     },
     uniqueId:1,
+    hoverContent:''
   },
   mutations: {
     setMainData (state,data) {
@@ -24,6 +25,9 @@ export default new Vuex.Store({
     setUniqueIdData (state,data) {
       state.uniqueId= data
     },
+    setHoverContent (state,data) {
+      state.hoverContent= data
+    },
   },
   getters:{
     getMainData (state) {
@@ -34,6 +38,9 @@ export default new Vuex.Store({
     },
     getUniqueIdData (state) {
       return state.uniqueId
+    },
+    getHoverContent (state) {
+      return state.hoverContent
     },
   }
 });

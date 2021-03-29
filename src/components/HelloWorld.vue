@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <div>
+    <!-- <div>
       <ul class="left_heading">
         <li @click="hClick(1)">H1</li>
         <li>H2</li>
@@ -59,15 +59,16 @@
           <h6>Heading</h6>
         </template>
       </div>
+    </div> -->
 
       <!-- <span v-html="html">Test v-html</span> -->
       <!-- <span :class="count.settings.heading[headingNo-1].isTrue==true ? 'h1':''">{{testText}}</span> -->
       <!-- <textarea name="" id="" cols="30" rows="10" v-model="testText"></textarea> -->
-    </div>
+    
 
-    <div class="mainView">
+    <!-- <div class="mainView">
 
-    </div>
+    </div> -->
     <!-- <h2>Essential Links</h2>
     <ul>
       <li>
@@ -147,13 +148,32 @@
         </a>
       </li>
     </ul> -->
+
+    <Board id="board-1">
+      <Card id="card-1" draggable="true">
+          <span>oNe</span>
+      </Card>
+    </Board>
+    <Board id="board-2">
+      <Card id="card-2" draggable="true">
+          <span>two</span>
+      </Card>
+    </Board>
+
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import Board from "./ui/H1";
+import Card from "./ui/card";
+
 export default {
   name: 'HelloWorld',
+  components: {
+    Board,
+    Card
+  },
   computed: {
    ...mapGetters({
           // count:'getCount',
