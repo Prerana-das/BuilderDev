@@ -43,10 +43,19 @@
                         {{item}}
                     </p> 
                 </div> -->
-                <node-tree :node="mainData"></node-tree>
-                <div @click="blankDiv()" class="blank_btn">
-                    Blank
-                </div>
+                 <Card id="card-1" draggable="true"
+                 >
+                    <span>oNe</span>
+                </Card>
+                <Card id="card-2" draggable="true">
+                    <span>two</span>
+                </Card>
+                <Board id="board-1">
+                    <node-tree :node="mainData"></node-tree>
+                    <div @click="blankDiv()" class="blank_btn">
+                        Blank
+                    </div>
+                </Board>
     
                
             </div>
@@ -71,10 +80,14 @@
 <script>
 import { mapGetters } from "vuex";
 import NodeTree from "./NodeTree";
+import Board from "./ui/H1";
+import Card from "./ui/card";
 export default {
 //   name: 'HelloWorld',
  components: {
-    NodeTree
+    NodeTree,
+    Board,
+    Card
   },
   computed: {
    ...mapGetters({

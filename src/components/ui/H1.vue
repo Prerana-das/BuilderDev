@@ -118,11 +118,16 @@ export default {
     },
 
     drop: e=>{
+       console.log('drag dropppppp',e)
+
       const card_id= e.dataTransfer.getData('card_id');
 
       const card= document.getElementById(card_id);
+      console.log('card',card)
       card.style.display="block";
       e.target.appendChild(card);
+      console.log('card update',card)
+
     }
   }
 }

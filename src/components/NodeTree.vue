@@ -19,6 +19,9 @@
         </li>
       </ul>
     </div>
+     <div v-for="(item1,index1) in node.items" :key="index1" v-if="node.items.length">
+       
+     </div>
 
     <div v-for="(item1,index1) in node.items" :key="index1" v-if="node.items.length">
       <template v-if="!item1.items.length">

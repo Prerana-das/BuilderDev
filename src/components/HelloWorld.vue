@@ -150,15 +150,25 @@
     </ul> -->
 
     <Board id="board-1">
-      <Card id="card-1" draggable="true">
+      board
+    </Board>
+    <Card id="card-1" draggable="true">
           <span>oNe</span>
       </Card>
-    </Board>
-    <Board id="board-2">
       <Card id="card-2" draggable="true">
           <span>two</span>
       </Card>
+      
+    <!-- <Board id="board-3">
+      <Card id="card-3" draggable="true">
+          <span>three</span>
+      </Card>
     </Board>
+    <Board id="board-4">
+      <Card id="card-4" draggable="true">
+          <span>four</span>
+      </Card>
+    </Board> -->
 
   </div>
 </template>
