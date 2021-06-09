@@ -1,47 +1,47 @@
 <template>
     <div>
-      <template v-if="colProp.step1=='col4'">
-         <div class="u-row row p-0">
-          <div class="u-col col-md-4">
-          </div>
-          <div class="u-col col-md-4">
-          </div>
-          <div class="u-col col-md-4">
-          </div>
-        </div>
-      </template>
-      <template v-else-if="colProp.step1=='col3'">
-         <div class="u-row row p-0">
-          <div class="u-col col-md-3">
-          </div>
-          <div class="u-col col-md-3">
-          </div>
-          <div class="u-col col-md-3">
-          </div>
-          <div class="u-col col-md-3">
-          </div>
-        </div>
+       <template v-for="child in node.items" v-if="node.items && node.items.length">
+        1
+        <!-- <span>11{{ child.contentType }}</span> -->
+        <div v-html="formatCode(child)"></div>
       </template>
       <template v-else>
-         <div class="u-row row p-0">
-          <div class="u-col col-md-6">
-          </div>
-          <div class="u-col col-md-6">
-          </div>
-        </div>
+        2
+        <div v-html="formatCode(node)"></div>
       </template>
-      
     </div>
 </template>
 
 <script>
 export default {
-  props: ["colProp"],
+  props: ["node"],
   data(){
     return{
  
     }
+  },
+  computed: {
+        // formatCode(node){
+        //      return '<h1>'+ 'helloooooooooooooooo' +'</h1>'; 
+        // }
+  },
+  methods: {
+    formatCode(node){
+      if(node.contentType=='h1'){
+        return '<h1>'+ 'helloooooooooooooooo' +'</h1>';
+      }
+      else if(node.contentType=='b'){
+        return '<b>'+ 'bbbb' +'</b>';
+      }else{
+          return '<h1>'+ 'helloooooooooooooooo' +'</h1>';
+      }     
+    }
+  },
+  filters: {
+   
+
   }
+
 }
 </script>
 

@@ -1,10 +1,15 @@
 <template>
-    <div :id="id"
+    <!-- <div :id="id"
     class="board"
     @dragover.prevent
-    @drop.prevent="drop">
-       <slot/>
-        <!-- <h1 contenteditable="true" :class="h1Prop.step1.ac=='ac'? 'textCenter': h1Prop.step1.ac=='al' ? 'textLeft':h1Prop.step1.ac=='ar'? 'textRight':''">
+    @drop.prevent="drop"> -->
+    <div>
+       <!-- <slot/> -->
+
+
+
+
+        <h1 contenteditable="true" :class="h1Prop.step1.ac=='ac'? 'textCenter': h1Prop.step1.ac=='al' ? 'textLeft':h1Prop.step1.ac=='ar'? 'textRight':''">
           <template v-if="h1Prop.step2">
              <template v-if="h1Prop.step2.contentType=='p'">
                  <template v-if="h1Prop.step3">
@@ -72,14 +77,16 @@
           <template v-else>
             Heading
           </template>
-        </h1> -->
+        </h1>
+
+ 
     </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 export default {
-  props: ["id"],
+  props: ["h1Prop"],
   computed: {
    ...mapGetters({
           selectTag:'getSelectTagData',
@@ -128,7 +135,12 @@ export default {
       e.target.appendChild(card);
       console.log('card update',card)
 
-    }
+    },
+
+
+    checkTimer(){
+      return '<h1>hjjgjhghjg</h1>'
+    },
   }
 }
 </script>

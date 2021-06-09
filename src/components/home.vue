@@ -50,16 +50,20 @@
                 <Card id="card-2" draggable="true">
                     <span>two</span>
                 </Card>
-                <Board id="board-1">
+                <!-- <Board id="board-1"> -->
                     <node-tree :node="mainData"></node-tree>
+
                     <div @click="blankDiv()" class="blank_btn">
                         Blank
                     </div>
-                </Board>
+                <!-- </Board> -->
     
                
             </div>
         </div>
+
+
+        
        
         <!-- <Button type="primary" @click="modal6=true">Display dialog box</Button>
         <Modal v-model="modal6" :closable="false" title="Edit" :mask-closable="false">			

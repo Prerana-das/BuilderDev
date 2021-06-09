@@ -19,9 +19,10 @@
         </li>
       </ul>
     </div>
-     <div v-for="(item1,index1) in node.items" :key="index1" v-if="node.items.length">
+     <!-- <div v-for="(item1,index1) in node.items" :key="index1" v-if="node.items.length">
        
-     </div>
+       testttt
+     </div> -->
 
     <div v-for="(item1,index1) in node.items" :key="index1" v-if="node.items.length">
       <template v-if="!item1.items.length">
@@ -301,10 +302,22 @@
       </div>  
     </div>
 
+
+
+
     <!-- <div v-if="node.items && node.items.length">
       <node v-for="child in node.items" :node="child">
       </node>
     </div> -->
+    <!-- <div v-if="node.items && node.items.length"> -->
+      <template v-for="child in node.items">
+        {{child.items.length}}
+        <UCol v-if="child.items && child.items.length" :node="child"/>
+        <template v-else>
+            <div v-html="formatCode(child)"></div>
+        </template>
+      </template>
+    <!-- </div> -->
 
     </div>
 </template>
@@ -371,9 +384,10 @@ export default {
       console.log('editOn calling',item);
       this.uibEditId= item.id;
       this.uibEditIndex= index;
-      // this.singleItem(item,index);
+      this.singleItem(item,index);
     },
    async editItem(value,cssValue){
+     console.log('edit data calling')
     if(this.selectTag.selectItem){
         this.editValue=value
         this.editValue=value
@@ -384,6 +398,9 @@ export default {
     },
 
     async dfs(node) {
+      console.log('dfs calling')
+       console.log('node id',node.id)
+       console.log('node id',this.selectTag.selectItem.id)
       if(node.id==this.selectTag.selectItem.id){
           console.log('matched')
           if(this.editValue=='b' || this.editValue=='u' || this.editValue=='i' && this.editValue!=node.contentType){
@@ -451,10 +468,24 @@ export default {
         console.log('a i',a);
         console.log('singleItem')
         this.editoptionON=true;
-        // this.selectTag.selectItem=a
-        // this.selectTag.selectIndex=index
-        // this.$store.commit("setSelectTagData",this.selectTag);
+        this.selectTag.selectItem=a
+        this.selectTag.selectIndex=index
+        this.$store.commit("setSelectTagData",this.selectTag);
     },
+
+
+
+
+     formatCode(node){
+      if(node.contentType=='h1'){
+        return '<h1>'+ 'helloooooooooooooooo' +'</h1>';
+      }
+      else if(node.contentType=='b'){
+        return '<b>'+ 'bbbb' +'</b>';
+      }else{
+          return '<h1>'+ 'helloooooooooooooooo' +'</h1>';
+      }     
+    }
 
     
   },
